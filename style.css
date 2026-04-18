@@ -1,0 +1,525 @@
+/*=========== navigation bar=========*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif; /* Or your preferred font */
+}
+
+.navbar {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.nav-logo {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 35px; /* Spacing between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #888;
+}
+
+
+
+  
+/*======== Humberger==========*/
+
+
+/* --- Hamburger Button --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  background: #333;
+  height: 2px;
+  width: 25px;
+  transition: all 0.3s;
+}
+
+.hamburger::before, .hamburger::after {
+  content: "";
+  position: absolute;
+  background: #333;
+  height: 2px;
+  width: 25px;
+  transition: all 0.3s;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+/* --- Responsive (Mobile) --- */
+@media screen and (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+    z-index: 2000;
+  }
+
+  /* Improved Sidebar: No more dark blue! */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Fully hidden */
+    width: 70%;    /* Takes up 70% of screen */
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+  }
+
+  .nav-links.show {
+    right: 0; /* Slides in */
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-links a {
+    font-size: 20px;
+  }
+}
+/*==================*/
+.categories{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.categories h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.product-grid {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto; /* Enables swiping on mobile */
+}
+
+.product-card {
+  flex: 1;
+  min-width: 250px; /* Prevents cards from getting too squished */
+  text-align: center;
+}
+
+.image-wrapper {
+  aspect-ratio: 4 / 5; /* Keeps all images the same size */
+  overflow: hidden;
+  background-color: #f4f4f4;
+  margin-bottom: 15px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.03); /* Subtle zoom effect */
+}
+
+.store-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.store-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.store-name {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.product-title {
+  font-size: 16px;
+  color: #000;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+
+
+/*=========== Hero ========*/
+/*=========== Hero 1========*/
+
+.hero-one {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  background: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.1) 60%),
+    url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-content {
+  color: white;
+  max-width: 650px;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 15px;
+  color: #d1d1d1;
+}
+
+.hero-title {
+  font-size: clamp(38px, 6vw, 68px); 
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  color: #efefef;
+  font-weight: 300;
+  max-width: 80%;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Updated Button Styles */
+.btn {
+  display: inline-block;
+  padding: 15px 35px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px; 
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #fff;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn-outline:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+/* Keyframe for the Fade-In effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .hero-one {
+    padding: 0 5%;
+    justify-content: center;
+    text-align: center;
+    background: 
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d') center/cover no-repeat;
+  }
+  
+  .hero-description {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}/*=========== Hero Two  ========*/
+.hero-two {
+  height: 50vh;
+  /* Swapped to a cleaner, more "warehouse/studio" background image */
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+              url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1470&auto=format&fit=crop') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-text-two h2 {
+  font-size: 42px;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero-text-two p {
+  color: #666;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.step-tag {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 4px;
+  display: block;
+
+}
+
+
+/*===============*/
+.statement-spacer {
+  padding: 100px 10%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.statement-spacer blockquote {
+  font-size: 28px;
+  font-family: 'Playfair Display', serif; /* Use a serif font for a luxury feel */
+  font-style: italic;
+  color: #222;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/*========== Feature Section Style Update ==========*/
+.services {
+  padding: 100px 10%;
+  background-color: #fff;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.image-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  align-self: center;
+  background-color: transparent;
+}
+
+.service-card img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  transition: transform 0.8s ease;
+  display: block;
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+}
+
+.service-text {
+  flex: 1;
+}
+
+.number {
+  font-size: 14px;
+  font-weight: bold;
+  color: #111;
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.number::after {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: #111;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.service-text h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #111;
+}
+
+.service-text p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 900px) {
+  .service-card, .service-card.reverse {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .service-card img {
+    height: 300px;
+  }
+  
+  .number::after {
+    display: none;
+  }
+}
+
+
+/*========= Partner Stores ===============*/
+.footer-partners {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 1px solid #eeeeee;
+  width: 100%;
+}
+
+.partners-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.partners-title {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888; 
+  margin-bottom: 40px;
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px; /* Space between logos */
+}
+
+.logo-box {
+  font-family: 'Georgia', serif; /* Fashion-forward font style */
+  font-size: 24px;
+  font-weight: bold;
+  color: #bbb; 
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+/* Hover effect: Brand pops into focus */
+.logo-box:hover {
+  color: #000;
+  filter: grayscale(0%);
+  transform: translateY(-5px); 
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 600px) {
+  .partner-logos {
+    gap: 20px;
+  }
+  .logo-box {
+    font-size: 18px;
+    flex: 1 1 40%; 
+  }
+}
+
